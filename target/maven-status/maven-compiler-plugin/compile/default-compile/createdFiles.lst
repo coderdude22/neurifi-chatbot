@@ -1,2 +1,3 @@
-controller\Controller.class
 mainchat\MainChat.class
+controller\Controller.class
+controller\Controller$1.class

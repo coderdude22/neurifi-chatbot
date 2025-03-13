@@ -1,25 +1,33 @@
 package mainchat;
 
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 public class MainChat extends Application{
 	
 	@Override
     public void start(Stage primaryStage) {
-        Label label = new Label("Hello, chatbot!");
-        StackPane root = new StackPane(label);
-        Scene scene = new Scene(root, 400, 300);
-
-        primaryStage.setTitle("My Chatbot");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/chat.fxml"));
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root, 600, 400);
+			
+			primaryStage.setTitle("NeurifiAI");
+			primaryStage.setScene(scene);
+			primaryStage.show();		
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.err.println("Error loading FXML file.");
+		}
+	}
 
     public static void main(String[] args) {
         launch(args);
